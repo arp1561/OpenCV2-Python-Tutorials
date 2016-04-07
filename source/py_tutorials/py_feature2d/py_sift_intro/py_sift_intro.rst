@@ -83,7 +83,7 @@ So this is a summary of SIFT algorithm. For more details and understanding, read
 SIFT in OpenCV
 ================= 
 
-So now let's see SIFT functionalities available in OpenCV. Let's start with keypoint detection and draw them. First we have to construct a SIFT object. We can pass different parameters to it which are optional and they are well explained in docs.
+So now let's see SIFT functionalities available in OpenCV. Let's start with keypoint detection and draw them. First we have to construct a SIFT object. Since SIFT and SURF( will be introduced in the later lessons ), are patented algorithms, so if you are using opencv version higher than 2.4, you will need to install opencv_contrib libraries. the "xfeatures2d" allows to make SIFT as well as SURF objects.
 ::
 
     import cv2
@@ -92,7 +92,7 @@ So now let's see SIFT functionalities available in OpenCV. Let's start with keyp
     img = cv2.imread('home.jpg')
     gray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
-    sift = cv2.SIFT()
+    sift = cv2.xfeatures2d.SIFT_create()
     kp = sift.detect(gray,None)
 
     img=cv2.drawKeypoints(gray,kp)
